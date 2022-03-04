@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+
+{% block title %} Login {% endblock %}
+
+{% block Content %}
+
+    <div class="navbar">
+
+        <ul>
+            <li><a href="/login"> Login </a></li>
+            <li><a href="/sign_up" >Sign Up </a></li>
+        </ul>
+
+    </div>
+
+    <h1 align = "center"> Sign Up </h1>
+
+    <div class="container">
+
+        <form class = "form-group"  method="post">
+
+
+            <label for="name">Username</label>
+            <input type="text" name="name" id="name">
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password">
+
+            <label for="password-comfirm">Password(Comfirm)</label>
+            <input type="password" name="password-comfirm" id="password-comfirm">
+
+            <input type="submit" value="Create Account">
+
+
+        </form>
+
+    </div>
+
+{% endblock %}
+  
