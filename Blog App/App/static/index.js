@@ -1,8 +1,8 @@
-closeButton = document.querySelector('.close-button');
+const menuBar = document.querySelector('.menu');
+const navList = document.querySelector('.nav-list');
 
-closeButton.addEventListener('onclick', closeBtn())
 
+menuBar.addEventListener('click', ()=>{
 
-closeBtn = () =>{
-    this.parentElement.style.display = "none";
-}
+    navList.classList.toggle('active');
+});

@@ -17,7 +17,7 @@
 </head>
 <body>
 
-    <script src="{{ url_for('static', filename = 'index.js')}}"></script>
+
 
     {% with messages = get_flashed_messages(with_categories= true) %}
 
@@ -47,10 +47,17 @@
     {% endwith %}
 
     
+    <div class ="menu">
+        <span class = 'bar'></span>
+        <span class = 'bar'></span>
+        <span class = 'bar'></span>
+    </div>
 
     {% block Content %}
 
     {%  endblock %}
+
+    <script src="{{ url_for('static', filename = 'index.js')}}"></script>
     
 </body>
 </html>
