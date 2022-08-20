@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+
+{% block title %}Home{% endblock %}
+
+
+{% block Content %}
+
+
+    <div class="navbar">
+        <p>BlogApp</p>
+
+        <ul class = 'nav-list'>
+            <li><a href="/"> Home </a></li>
+            <li><a href="/post_view"> Posts </a></li>
+            <li><a href="/my-profile" >Profile</a></li>
+            <li><a href="/logout" >Logout</a></li>
+        </ul>
+
+
+    </div>
+
+    <h1 align = "center">Hello there {{user.user_name}}, make a post below...</h1>
+
+    <div class="container">
+
+
+        
+        <form method="POST" class="form-group">
+
+            
+            <label for="post">Post</label>
+            <textarea name="post" id="post" cols="30" rows="10" placeholder="What's on your mind {{user.user_name}}?"></textarea>
+            <input type="submit" value="Post">
+
+        </form>
+
+
+    </div>
+
+
+{% endblock %}

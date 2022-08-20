@@ -1,0 +1,61 @@
+
+
+{% extends "base.html" %}
+
+
+{% block title %} Posts {% endblock %}
+
+{% block Content %}
+
+    <div class="navbar">
+
+        <p>BlogApp</p>
+
+        <ul class = 'nav-list'>
+            <li><a href="/"> Home </a></li>
+            <li><a href="/post_view"> Posts </a></li>
+            <li><a href="/my-profile" >Profile</a></li>
+            <li><a href="/logout" >Logout</a></li>
+        </ul>
+    
+
+    </div>
+
+    <h1 align = "center"> {{user.user_name}}'s Post </h1>
+
+    
+
+                <!---Add the users here-->
+            {% if post %}
+
+                
+                    <div class="post-container">
+
+                        <div class="post">
+                            
+                            <img src="{{ url_for('static', filename = 'img/' + user.profile_filename )}}" width = "100px" height="100px">
+                            <h1>{{ user.user_name }}</h1>
+                       
+                            <!--The post-->
+                            <p>{{ post.post_data }}</p>
+
+                            <!--The buttons-->
+                            <div class="post-button">
+                                <a href="/post_view" class ="delete-post">Back</a>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+            {% else %}
+
+                    <h1>No post here...</h1>
+
+            {% endif %}
+
+
+  
+
+{% endblock %}

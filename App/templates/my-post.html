@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+
+{% block title %} My Post {% endblock %}
+
+{% block Content %}
+
+
+    <div class="navbar">
+        <p>BlogApp</p>
+
+        <ul class = 'nav-list'>
+            <li><a href="/"> Home </a></li>
+            <li><a href="/post_view"> Posts </a></li>
+            <li><a href="/my-profile" >Profile</a></li>
+            <li><a href="/logout" >Logout</a></li>
+        </ul>
+
+
+    </div>
+
+
+    <h1 align = "center"> Your Posts </h1>
+
+
+    {% for post in user.posts %}
+
+        <div class="post-container">
+
+            <div class="post">
+
+                <!--The users name -->
+                    <h1>{{ user.user_name }}</h1>
+                <!--The post-->
+                <p>{{ post.post_data }}</p>
+                <!--The buttons-->
+                <div class="post-button">
+                    <a class = "view-post" href="/user_post/{{ post.id }}">View Post</a>
+                    <a href="/edit_post/{{ post.id }}" class ="edit-post">Edit Post</a>
+                    <a href="/delete_post/{{ post.id }}" class ="delete-post">Delete Post</a>
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+    {% endfor %}
+
+
+
+
+{% endblock %}

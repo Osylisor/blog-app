@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+
+{% block title %} Posts {% endblock %}
+
+{% block Content %}
+
+    <div class="navbar">
+        <p>BlogApp</p>
+
+        <ul class="nav-list">
+            <li><a href="/"> Home </a></li>
+            <li><a href="/post_view"> Posts </a></li>
+            <li><a href="/my-profile" >Profile</a></li>
+            <li><a href="/logout" >Logout</a></li>
+        </ul>
+    
+
+    </div>
+
+    <h1 align = "center"> Posts </h1>
+
+    
+
+                <!---Add the users here-->
+            {% if posts %}
+
+                {% for post in posts %}
+                
+                    <div class="post-container">
+
+                        <div class="post">
+
+
+                      
+
+                            <!--The users name and profile pic -->
+                            {% for user in users %}
+                                {% if post.user_id == user.id %}
+                                    <img src="{{ url_for('static', filename = 'img/' + user.profile_filename )}}" width = "100px" height="100px">
+                                    <h1>{{ user.user_name }}</h1>
+                                {% endif %}
+                            {% endfor %}
+                        
+                            <!--The post-->
+                            <p>{{ post.post_data }}</p>
+
+                            
+
+                            <!--The-->
+                            <div class="post-button">
+                                <a class = "view-post" href="/user_post/{{ post.id }}">View Post</a>
+
+                                {% if post.user_id == active_user.id %}
+                                    <a href="/edit_post/{{ post.id }}" class ="edit-post">Edit Post</a>
+                                    <a href="/delete_post/{{ post.id }}" class ="delete-post">Delete Post</a>
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                {% endfor %}
+            
+            {% else %}
+
+                    <h1 align = "center">No post here...</h1>
+
+            {% endif %}
+
+
+  
+
+{% endblock %}
